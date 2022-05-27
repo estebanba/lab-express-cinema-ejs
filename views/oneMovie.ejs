@@ -1,10 +1,23 @@
-<div>
-    <div>
-        <img src="<%- movie.image %>" alt="poster from: <%- movie.title %>">
+<h1>OneMovie</h1>
+
+<div class="movie-detail">
+    <div class="detail-block">
+        <img src="<%- specificMovie.image %>" alt="poster from: <%- specificMovie.title %>">
     </div>
-    <div>
+    <div class="detail-block">
         <a href="/movies">Go back</a>
-        <h1><% movie.title %> </h1>
-        <h2><% movie.director %> </h2>
+        <h1><%- specificMovie.title %> </h1>
+        <h2><%- specificMovie.director %> </h2>
+        <ul>
+            <% specificMovie.stars.forEach(star => { %>
+                <li><%- star %> </li>
+            <% }); %> 
+        </ul>
+        <p><%- specificMovie.description %> </p>
+        <p>
+            <% specificMovie.showtimes.forEach(time => { %>
+                <span><%- time %> | <span>
+            <% }); %> 
+        </p>
     </div>
 </div>
