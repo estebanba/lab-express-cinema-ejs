@@ -14,6 +14,13 @@ router.get('/movies', async (req, res, next) => {
     let allMovies = await Movie.find()
     console.log(allMovies);
     res.render('movies', { allMovies })
-})
+});
+
+router.get('/movies/:id', async (req, res, next) => {
+    let allMovies = await Movie.find()
+    let data = res.send(req.params['id'])
+    let movie = allMovies[data]
+    res.render('oneMovie', { movie })
+});
 
 module.exports = router;
